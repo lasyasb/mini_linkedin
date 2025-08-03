@@ -35,7 +35,8 @@ Then open http://localhost:5000
 
 ---
 
-##🙋‍♀️ Author
+
+🙋‍♀️ Author
 
 Built by Lasya — made with love, Flask, and just a hint of chaos 💙
 Feel free to connect or reach out!
