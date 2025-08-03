@@ -11,32 +11,29 @@ A community-based mini LinkedIn clone built with Flask, allowing users to regist
 ✅ Responsive LinkedIn-like UI
 
 ---
+# Tech Stack
 
-## 🛠 Tech Stack
-
-- **Frontend**: HTML, CSS (custom LinkedIn-inspired design)  
-- **Backend**: Flask, Python  
-- **Database**: SQLite  
-- **Authentication**: Flask-Login  
+- **Frontend**: HTML, CSS (custom LinkedIn-inspired design)
+- **Backend**: Flask, Python
+- **Database**: SQLite
+- **Authentication**: Flask-Login
 - **Deployment**: Render
 
 ---
 
-## 🚀 How to Run Locally
+# How to Run Locally
 
-```bash
-git clone https://github.com/yourusername/mini_linkedin.git
-cd mini_linkedin
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-python run.py
-Then open http://localhost:5000
+git clone https://github.com/yourusername/mini_linkedin.git  
+cd mini_linkedin  
+python3 -m venv venv  
+source venv/bin/activate  
+pip install -r requirements.txt  
+python run.py  
+Then open http://localhost:5000  
 
 ---
 
+📝 Author
 
-🙋‍♀️ Author
-
-Built by Lasya — made with love, Flask, and just a hint of chaos 💙
+Built by Lasya – made with love, Flask, and just a hint of chaos.
 Feel free to connect or reach out!
