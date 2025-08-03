@@ -1,0 +1,273 @@
+/* RESET & BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3f2ef;
+  color: #333;
+}
+
+/* HEADER */
+header {
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+header h1 a {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #4b0082;
+  text-decoration: none;
+}
+
+nav a {
+  margin-left: 20px;
+  color: #0A66C2;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* MAIN CONTAINER */
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* FEED SECTION */
+.feed {
+  flex: 1;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+/* POST FORM */
+.post-form, .form-container {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+}
+
+textarea, input[type="text"], input[type="email"], input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+button {
+  background-color: #0A66C2;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #004182;
+}
+
+button[type="button"] {
+  background-color: #ccc;
+  color: #333;
+}
+
+a button {
+  margin-left: 0.5rem;
+}
+
+/* PROFILE SECTION */
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.profile-info img.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
+.profile-info p {
+  font-size: 14px;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.profile-info form {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+input[type="file"] {
+  margin-top: 0.5rem;
+  font-size: 14px;
+}
+
+/* POST CARD */
+.post {
+  background-color: #ffffff;
+  padding: 1rem 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.05);
+  margin-bottom: 1.5rem;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.author img.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.75rem;
+}
+
+.author h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #888;
+}
+
+.post-content p {
+  font-size: 15px;
+  margin: 0.5rem 0 1rem;
+}
+
+.post-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.post-actions button {
+  background: none;
+  color: #0A66C2;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.post-actions button:hover {
+  text-decoration: underline;
+}
+
+.post-actions button[style*="red"] {
+  color: #e74c3c;
+}
+
+/* COMMENT SECTION */
+.comments {
+  margin-top: 1rem;
+  border-top: 1px solid #eee;
+  padding-top: 0.75rem;
+}
+
+.comment {
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+}
+
+.comment strong {
+  color: #333;
+}
+
+.comments form {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.comments input[type="text"] {
+  flex: 1;
+}
+
+/* FLASH MESSAGES */
+.flash {
+  list-style-type: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.flash li {
+  padding: 0.75rem;
+  background-color: #e7f3ff;
+  border-left: 5px solid #0A66C2;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 13px;
+  color: #888;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .post-form,
+  .post,
+  .form-container {
+    padding: 1rem;
+  }
+}

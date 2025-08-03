@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="feed">
+        <div class="post-form profile-info" style="text-align: center;">
+            <img src="{{ url_for('static', filename='profile_pics/' + profile_user.profile_pic) }}" class="avatar" alt="Profile Picture">
+
+            <h2>{{ profile_user.name }}</h2>
+            <p><strong>Email:</strong> {{ profile_user.email }}</p>
+
+            {% if current_user.id == profile_user.id %}
+                <form method="POST" action="{{ url_for('main.edit_bio') }}">
+                    <textarea name="bio" rows="3" placeholder="Tell us about yourself...">{{ current_user.bio }}</textarea>
+                    <button type="submit">Update Bio</button>
+                </form>
+
+                <form method="POST" action="{{ url_for('main.upload_pic') }}" enctype="multipart/form-data">
+                    <input type="file" name="profile_pic" id="profile_pic">
+                    <button type="submit">Upload New Pic</button>
+                </form>
+            {% else %}
+                <p><strong>Bio:</strong> {{ profile_user.bio or 'No bio yet.' }}</p>
+            {% endif %}
+        </div>
+
+        <hr style="margin: 2rem 0;">
+
+        <h3>Posts by {{ profile_user.name }}</h3>
+        {% for post in profile_user.posts %}
+        <div class="post">
+            <div class="author">
+                <img src="{{ url_for('static', filename='profile_pics/' + post.author.profile_pic) }}" class="avatar" alt="Profile Pic">
+                <div>
+                    <h3>{{ post.author.name }}</h3>
+                    <small class="timestamp">{{ post.timestamp.strftime('%Y-%m-%d %H:%M') }}</small>
+                </div>
+            </div>
+
+            <div class="post-content">
+                <p>{{ post.content }}</p>
+            </div>
+
+            <div class="post-actions">
+                <form method="POST" action="{{ url_for('main.like_post', post_id=post.id) }}">
+                    <button type="submit">
+                        ❤️ {{ post.liked_by | length }}
+                        {% if current_user in post.liked_by %} (You liked it){% endif %}
+                    </button>
+                </form>
+
+                {% if current_user.id == post.user_id %}
+                    <form method="POST" action="{{ url_for('main.delete_post', post_id=post.id) }}">
+                        <button style="color: red;">Delete</button>
+                    </form>
+                    <a href="{{ url_for('main.edit_post', post_id=post.id) }}">
+                        <button>Edit</button>
+                    </a>
+                {% endif %}
+            </div>
+
+            <div class="comments">
+                {% for comment in post.comments %}
+                <div class="comment">
+                    <strong>{{ comment.author.name }}</strong>: {{ comment.content }}
+                </div>
+                {% endfor %}
+
+                <form method="POST" action="{{ url_for('main.add_comment', post_id=post.id) }}">
+                    <input type="text" name="comment" placeholder="Add a comment..." required>
+                    <button type="submit">Comment</button>
+                </form>
+            </div>
+        </div>
+        {% else %}
+        <p>No posts yet.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
