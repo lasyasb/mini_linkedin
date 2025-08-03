@@ -33,6 +33,8 @@ pip install -r requirements.txt
 python run.py
 Then open http://localhost:5000
 
+---
+
 🙋‍♀️ Author
 
 Built by Lasya — made with love, Flask, and just a hint of chaos 💙
